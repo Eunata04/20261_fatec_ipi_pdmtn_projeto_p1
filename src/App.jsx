@@ -13,6 +13,8 @@ function App() {
   const [juros, setJuros] = useState('')
   const [rentabilidade, setRentabilidade] = useState('')
 
+  const [historico, setHistorico] = useState([])
+
   const handleValorInicial = (e) => setValorInicial(e.target.value)
   const handleValorAporte = (e) => setValorAporte(e.target.value)
   const handleTaxaJuros = (e) => setTaxaJuros(e.target.value)
@@ -33,10 +35,19 @@ function App() {
     const totalAportes = va * p
     const jurosCalculado = total - vi - totalAportes
 
-    setValorFinal(total.toFixed(2))
+    const valorFinalCalculado = total.toFixed(2)
+
+    setValorFinal(valorFinalCalculado)
     setNumeroAportes(p)
     setJuros(jurosCalculado.toFixed(2))
     setRentabilidade((tj * 100).toFixed(2) + '%')
+
+    const novaSimulacao = {
+      valorFinal: valorFinalCalculado,
+      data: new Date().toLocaleString()
+    }
+
+    setHistorico([...historico, novaSimulacao])
   }
 
   const limpar = () => {
@@ -82,6 +93,20 @@ function App() {
             juros={juros}
             rentabilidade={rentabilidade}
           />
+        </div>
+      </div>
+
+      <div className="row mt-4">
+        <div className="col-12">
+          <h4>Histórico de Simulações</h4>
+
+          <ul className="list-group">
+            {historico.map((item, index) => (
+              <li key={index} className="list-group-item">
+                Valor: {item.valorFinal} | Data: {item.data}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
