@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import CapturaDados from './components/CapturaDados'
+import ExibeDados from './components/ExibeDados'
 
 function App() {
-  // Estados
   const [valorInicial, setValorInicial] = useState('')
   const [valorAporte, setValorAporte] = useState('')
   const [taxaJuros, setTaxaJuros] = useState('')
   const [periodo, setPeriodo] = useState('')
 
-  // Funções de atualização
+  const [valorFinal, setValorFinal] = useState('')
+  const [numeroAportes, setNumeroAportes] = useState('')
+  const [juros, setJuros] = useState('')
+  const [rentabilidade, setRentabilidade] = useState('')
+
   const handleValorInicial = (e) => {
     setValorInicial(e.target.value)
   }
@@ -34,7 +38,7 @@ function App() {
       </div>
 
       <div className="row">
-        <div className="col-12">
+        <div className="col-12 col-lg-6">
           <CapturaDados
             valorInicial={valorInicial}
             valorAporte={valorAporte}
@@ -44,6 +48,15 @@ function App() {
             onValorAporteChange={handleValorAporte}
             onTaxaJurosChange={handleTaxaJuros}
             onPeriodoChange={handlePeriodo}
+          />
+        </div>
+
+        <div className="col-12 col-lg-6">
+          <ExibeDados
+            valorFinal={valorFinal}
+            numeroAportes={numeroAportes}
+            juros={juros}
+            rentabilidade={rentabilidade}
           />
         </div>
       </div>
