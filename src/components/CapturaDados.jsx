@@ -44,14 +44,11 @@ function CapturaDados(props) {
       </div>
 
       <div className="d-flex gap-2">
-        <button
-          className="btn btn-primary"
-          onClick={props.onSimular}
-        >
+        <button className="btn btn-primary" onClick={props.onSimular}>
           Simular
         </button>
 
-        <button className="btn btn-secondary">
+        <button className="btn btn-secondary" onClick={props.onLimpar}>
           Limpar
         </button>
       </div>

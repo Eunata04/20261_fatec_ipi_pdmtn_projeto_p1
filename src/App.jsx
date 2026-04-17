@@ -3,7 +3,6 @@ import CapturaDados from './components/CapturaDados'
 import ExibeDados from './components/ExibeDados'
 
 function App() {
-
   const [valorInicial, setValorInicial] = useState('')
   const [valorAporte, setValorAporte] = useState('')
   const [taxaJuros, setTaxaJuros] = useState('')
@@ -40,6 +39,18 @@ function App() {
     setRentabilidade((tj * 100).toFixed(2) + '%')
   }
 
+  const limpar = () => {
+    setValorInicial('')
+    setValorAporte('')
+    setTaxaJuros('')
+    setPeriodo('')
+
+    setValorFinal('')
+    setNumeroAportes('')
+    setJuros('')
+    setRentabilidade('')
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -60,6 +71,7 @@ function App() {
             onTaxaJurosChange={handleTaxaJuros}
             onPeriodoChange={handlePeriodo}
             onSimular={simular}
+            onLimpar={limpar}
           />
         </div>
 
