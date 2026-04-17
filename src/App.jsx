@@ -1,9 +1,10 @@
+import CapturaDados from './components/CapturaDados'
 function App() {
   return (
     <div className="container">
       <div className="row">
         <div className="col-12">
-          <h1>Hello, Investimentos</h1>
+          <CapturaDados />
         </div>
       </div>
     </div>
