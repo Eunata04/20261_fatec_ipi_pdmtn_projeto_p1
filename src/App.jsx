@@ -63,15 +63,15 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12">
+    <div className="container mt-4">
+      <div className="row mb-4">
+        <div className="col-12 text-center">
           <h1>Hello, Investimentos</h1>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-12 col-lg-6">
+      <div className="row mb-4">
+        <div className="col-12 col-lg-6 mb-3 mb-lg-0">
           <CapturaDados
             valorInicial={valorInicial}
             valorAporte={valorAporte}
@@ -96,17 +96,19 @@ function App() {
         </div>
       </div>
 
-      <div className="row mt-4">
+      <div className="row">
         <div className="col-12">
-          <h4>Histórico de Simulações</h4>
+          <div className="card p-3">
+            <h4 className="mb-3">Histórico de Simulações</h4>
 
-          <ul className="list-group">
-            {historico.map((item, index) => (
-              <li key={index} className="list-group-item">
-                Valor: {item.valorFinal} | Data: {item.data}
-              </li>
-            ))}
-          </ul>
+            <ul className="list-group">
+              {historico.map((item, index) => (
+                <li key={index} className="list-group-item">
+                  Valor: {item.valorFinal} | Data: {item.data}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
