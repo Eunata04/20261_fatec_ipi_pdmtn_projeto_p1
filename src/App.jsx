@@ -66,7 +66,7 @@ function App() {
     <div className="container mt-4">
       <div className="row mb-4">
         <div className="col-12 text-center">
-          <h1>Hello, Investimentos</h1>
+          <h1 className="text-dark">Simulador Investimentos</h1>
         </div>
       </div>
 
@@ -88,10 +88,10 @@ function App() {
 
         <div className="col-12 col-lg-6">
           <ExibeDados
-            valorFinal={valorFinal}
-            numeroAportes={numeroAportes}
-            juros={juros}
-            rentabilidade={rentabilidade}
+            valorFinal={valorFinal || '0.00'}
+            numeroAportes={numeroAportes || '0'}
+            juros={juros || '0.00'}
+            rentabilidade={rentabilidade || '0%'}
           />
         </div>
       </div>
@@ -101,13 +101,17 @@ function App() {
           <div className="card p-3">
             <h4 className="mb-3">Histórico de Simulações</h4>
 
-            <ul className="list-group">
-              {historico.map((item, index) => (
-                <li key={index} className="list-group-item">
-                  Valor: {item.valorFinal} | Data: {item.data}
-                </li>
-              ))}
-            </ul>
+            {historico.length === 0 ? (
+              <p>Nenhuma simulação realizada</p>
+            ) : (
+              <ul className="list-group">
+                {historico.map((item, index) => (
+                  <li key={index} className="list-group-item">
+                    Valor: {item.valorFinal} | Data: {item.data}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>
